@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Galerij - Marcin Kwaliteit</title>
+    <link rel="stylesheet" href="css/Style.css" type="text/css">
+    <link rel="icon" type="image/png" href="img/ec321d52-33c7-4e47-a626-c662c6fc59c6.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header>
+        <div class="header-logo-container">
+            <img src="img/ec321d52-33c7-4e47-a626-c662c6fc59c6.webp" alt="Logo Marcin Kwaliteit" class="header-logo">
+        </div>
+        <div class="header-flex">
+            <h1>Marcin Kwaliteit</h1>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="bedrijf.html">Bedrijfsinformatie</a>
+                <a href="galerij.html">Galerij</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="gallery">
+            <h2>Galerij</h2>
+            <div class="slideshow-container">
+                <img id="slideshow-img" class="slideshow-img" src="img/Raambinnen.webp" alt="Project foto">
+            </div>
+            <!-- Modal overlay for enlarged image -->
+            <div id="modal-overlay" class="modal-overlay">
+                <button id="modal-prev" class="modal-arrow left">&#8592;</button>
+                <img id="modal-img" class="modal-img" src="img/Raambinnen.webp" alt="Vergrote foto">
+                <button id="modal-next" class="modal-arrow right">&#8594;</button>
+                <button id="modal-close" class="modal-close">&times;</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <b>&copy; Michal Majkut, 2025</b>
+    </footer>
+    <script>
+    const images = [
+        'img/Raambinnen.webp',
+        'img/f667d743-155d-4005-ba7e-5837b08d1e51.webp',
+        'img/f458b81b-f86a-47f1-b93f-24825a86e0fb.webp',
+        'img/f7884720-56f3-463c-9fc1-bad44aaf7aa7.webp',
+        'img/14f14635-72f4-4a20-a0cf-eb7f34e83fc5.webp',
+        'img/80b12c14-3290-4521-87c4-17e10025a933.webp',
+        'img/46058a07-0f55-404f-8773-766e25d54748.webp',
+        'img/9e8265df-3084-49e5-90fe-6d97b14ddda1.webp',
+        'img/c8958b8f-f90a-4f95-9479-3039bc98ec8e.webp',
+        'img/0da37fb9-492d-4876-95db-ef68ff67a6be.webp',
+        'img/ef4bbca5-7f81-4841-9205-1a3252dc9a9a.webp',
+        'img/0683739a-6006-43b4-849d-3f85facc745c.webp',
+        'img/ed849c20-b52c-4a9b-a35e-1f71bb66c2ca.webp',
+        'img/a953afaf-b2e8-435d-b746-4b82fa6be2fe.webp',
+        'img/34b226bc-e2c8-44d0-bc87-bd0362d79b64.webp',
+        'img/3995467a-f874-42e5-a6ba-e2aa268833dd.webp',
+        'img/cd58bce8-fb5d-40d5-8260-23230634d331.webp',
+        'img/eb022d6e-2a9e-4a5c-bef9-b4d2ce9fbd64.webp'
+    ];
+    let current = 0;
+    const imgEl = document.getElementById('slideshow-img');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalImg = document.getElementById('modal-img');
+    const modalPrev = document.getElementById('modal-prev');
+    const modalNext = document.getElementById('modal-next');
+    const modalClose = document.getElementById('modal-close');
+
+    function updateSlideshow() {
+        imgEl.src = images[current];
+        modalImg.src = images[current];
+    }
+
+    // Modal logic
+    imgEl.onclick = function() {
+        modalOverlay.classList.add('active');
+        modalImg.src = images[current];
+    };
+    modalPrev.onclick = function(e) {
+        e.stopPropagation();
+        current = (current - 1 + images.length) % images.length;
+        updateSlideshow();
+    };
+    modalNext.onclick = function(e) {
+        e.stopPropagation();
+        current = (current + 1) % images.length;
+        updateSlideshow();
+    };
+    modalClose.onclick = function(e) {
+        e.stopPropagation();
+        modalOverlay.classList.remove('active');
+    };
+    // Close modal when clicking outside image
+    modalOverlay.onclick = function(e) {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove('active');
+        }
+    };
+    // Keyboard navigation in modal
+    document.addEventListener('keydown', function(e) {
+        if (modalOverlay.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') {
+                current = (current - 1 + images.length) % images.length;
+                updateSlideshow();
+            } else if (e.key === 'ArrowRight') {
+                current = (current + 1) % images.length;
+                updateSlideshow();
+            } else if (e.key === 'Escape') {
+                modalOverlay.classList.remove('active');
+            }
+        }
+    });
+    updateSlideshow();
+    </script>
+</body>
+</html> 

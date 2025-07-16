@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: http://marcinkwaliteit.nl/sitemap.xml

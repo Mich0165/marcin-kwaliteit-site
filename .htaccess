@@ -1,0 +1,20 @@
+# Force HTTPS (optional, but recommended)
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Allow all image access (no hotlink protection)
+# (No rules needed—by default, images are accessible)
+
+# If you had hotlink protection, it would look like this (REMOVE or COMMENT OUT if present):
+# RewriteCond %{HTTP_REFERER} !^https://marcinkwaliteit.nl/ [NC]
+# RewriteRule \.(jpg|jpeg|png|gif)$ - [F]
+
+# Cache images for 1 year
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg)$">
+  Header set Cache-Control "public, max-age=31536000"
+</FilesMatch>
+# Cache CSS for 1 month
+<FilesMatch "\.(css)$">
+  Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>

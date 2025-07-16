@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Home - Marcin Kwaliteit</title>
+    <link rel="stylesheet" href="css/Style.css" type="text/css">
+    <link rel="icon" type="image/png" href="img/ec321d52-33c7-4e47-a626-c662c6fc59c6.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://marcinkwaliteit.nl/Index.html">
+</head>
+<body>
+    <header>
+        <div class="header-logo-container">
+            <img src="img/ec321d52-33c7-4e47-a626-c662c6fc59c6.webp" alt="Logo Marcin Kwaliteit" class="header-logo">
+        </div>
+        <div class="header-flex">
+            <h1>Marcin Kwaliteit</h1>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="bedrijf.html">Bedrijfsinformatie</a>
+                <a href="galerij.html">Galerij</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main class="center-content">
+        <section class="center-content">
+            <h2 style="text-align:center;">Welkom</h2>
+            <p style="text-align:center;">Welkom bij Marcin Kwaliteit! Ik ben uw specialist voor dakramen en lichtkoepel montage, vervanging en reparatie. Neem direct contact op voor een vrijblijvende offerte.</p>
+            <div class="certificaat-showcase">
+                <img src="img/Certificaat.webp" alt="Certificaat van vakmanschap Marcin Kwaliteit" class="certificaat-img" id="certificaat-img" style="cursor:pointer;">
+            </div>
+            <!-- Modal for Certificaat -->
+            <div id="certificaat-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+                <span id="close-certificaat-modal" style="position:absolute; top:24px; right:32px; font-size:2.5rem; color:#fff; cursor:pointer; z-index:10000;">&times;</span>
+                <img src="img/Certificaat.webp" alt="Certificaat van vakmanschap Marcin Kwaliteit" style="max-width:96vw; max-height:90vh; border-radius:14px; box-shadow:0 4px 24px rgba(0,0,0,0.25); background:#fff;">
+            </div>
+            <script>
+            document.getElementById('certificaat-img').onclick = function() {
+                document.getElementById('certificaat-modal').style.display = 'flex';
+            };
+            document.getElementById('close-certificaat-modal').onclick = function() {
+                document.getElementById('certificaat-modal').style.display = 'none';
+            };
+            document.getElementById('certificaat-modal').onclick = function(e) {
+                if (e.target === this) this.style.display = 'none';
+            };
+            </script>
+        </section>
+    </main>
+    <footer>
+        <b>&copy; Michal Majkut, 2025</b>
+    </footer>
+</body>
+</html> 

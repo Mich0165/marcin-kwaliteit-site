@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Contact - Marcin Kwaliteit</title>
+    <link rel="stylesheet" href="css/Style.css" type="text/css">
+    <link rel="icon" type="image/png" href="img/ec321d52-33c7-4e47-a626-c662c6fc59c6.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header>
+        <div class="header-logo-container">
+            <img src="img/ec321d52-33c7-4e47-a626-c662c6fc59c6.webp" alt="Logo Marcin Kwaliteit" class="header-logo">
+        </div>
+        <div class="header-flex">
+            <h1>Marcin Kwaliteit</h1>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="bedrijf.html">Bedrijfsinformatie</a>
+                <a href="galerij.html">Galerij</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main class="center-content">
+        <section id="contact" class="center-content">
+            <h2 style="text-align:center;">Contact</h2>
+            <p style="text-align:center;">Neem vandaag nog contact op voor een vrijblijvende offerte of meer informatie!</p>
+            <p style="text-align:center;"><b>Email:</b> <span id="email-address">marcin1978@autograf.pl</span>
+                <button id="copy-email" style="margin-left:8px; padding:2px 10px; font-size:0.95em; border-radius:4px; border:none; background:#e0eafc; color:#0086ad; cursor:pointer;">Kopieer</button>
+                <span id="copy-feedback" style="margin-left:6px; color:green; display:none; font-size:0.95em;">Gekopieerd!</span>
+            <br><b>Telefoon:</b> 06-86287086</p>
+            <a href="mailto:marcin1978@autograf.pl" style="display:inline-block; margin:1em 0 0.2em 0; padding:0.5em 2em; background:#007ea7; color:white; border-radius:5px; text-decoration:none; font-weight:bold;">Stuur een e-mail</a>
+            <div style="font-size:0.98em; color:#555; margin-bottom:1em;">Werkt alleen als u een e-mailprogramma heeft ingesteld op uw computer.</div>
+            <a href="https://mail.google.com/mail/?view=cm&to=marcin1978@autograf.pl" target="_blank" rel="noopener" style="display:inline-block; margin-bottom:1em; padding:0.5em 2em; background:#e53935; color:white; border-radius:5px; text-decoration:none; font-weight:bold;">Stuur via Gmail</a>
+        </section>
+    </main>
+    <footer>
+        <b>&copy; Michal Majkut, 2025</b>
+    </footer>
+<script>
+// Copy-to-clipboard logic
+document.getElementById('copy-email').onclick = function() {
+    const email = document.getElementById('email-address').textContent;
+    navigator.clipboard.writeText(email).then(function() {
+        const feedback = document.getElementById('copy-feedback');
+        feedback.style.display = 'inline';
+        setTimeout(function() { feedback.style.display = 'none'; }, 1600);
+    });
+};
+</script>
+</body>
+</html> 
